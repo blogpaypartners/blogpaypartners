@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>블로그페이 파트너스 프로그램</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:#F0F6FF;color:#1A2B4A;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:99;background:rgba(240,246,255,0.88);backdrop-filter:blur(20px);border-bottom:1px solid rgba(59,130,246,0.12)}
+.nav-in{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:15px;font-weight:700;color:#1A2B4A;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;background:linear-gradient(135deg,#3B82F6,#06B6D4);border-radius:50%}
+.nav-btn{font-size:13px;font-weight:700;padding:9px 20px;border-radius:100px;background:linear-gradient(135deg,#3B82F6,#06B6D4);color:#fff;text-decoration:none;transition:opacity .15s;box-shadow:0 4px 14px rgba(59,130,246,0.3)}
+.nav-btn:hover{opacity:.88}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 24px 80px;position:relative;overflow:hidden;background:linear-gradient(160deg,#EFF6FF 0%,#E0F2FE 50%,#F0FDFF 100%)}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.blob1{position:absolute;top:-10%;left:-5%;width:60%;height:60%;background:radial-gradient(ellipse,rgba(59,130,246,0.12) 0%,transparent 65%);animation:fl1 12s ease-in-out infinite}
+.blob2{position:absolute;bottom:-10%;right:-5%;width:55%;height:55%;background:radial-gradient(ellipse,rgba(6,182,212,0.1) 0%,transparent 65%);animation:fl2 15s ease-in-out infinite}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.06) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+@keyframes fl1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(3%,3%) scale(1.05)}}
+@keyframes fl2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-2%,-2%) scale(1.04)}}
+.hero-in{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(59,130,246,0.25);background:rgba(59,130,246,0.08);border-radius:100px;padding:6px 14px 6px 8px;font-size:12px;color:#2563EB;margin-bottom:32px;font-weight:600}
+.badge-pill{background:linear-gradient(135deg,#3B82F6,#06B6D4);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:.04em}
+.hero h1{font-size:clamp(40px,7vw,80px);font-weight:800;line-height:1.08;letter-spacing:-0.03em;margin-bottom:28px;color:#0F172A}
+.grad{background:linear-gradient(135deg,#3B82F6 0%,#06B6D4 60%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:#475569;max-width:720px;line-height:1.85;margin-bottom:44px;font-weight:400}
+.hero-acts{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:72px}
+.btn-main{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#3B82F6,#06B6D4);color:#fff;font-size:15px;font-weight:700;padding:14px 28px;border-radius:100px;text-decoration:none;transition:all .2s;box-shadow:0 6px 20px rgba(59,130,246,0.35)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(59,130,246,0.4)}
+.btn-line{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#3B82F6;font-size:14px;font-weight:600;padding:14px 20px;border:1.5px solid rgba(59,130,246,0.3);border-radius:100px;text-decoration:none;transition:all .2s}
+.btn-line:hover{border-color:#3B82F6;background:#EFF6FF}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.15);border-radius:20px;overflow:hidden}
+.hstat{padding:24px 20px;background:#fff;text-align:center}
+.hstat-n{font-size:clamp(24px,3vw,36px);font-weight:800;color:#0F172A;letter-spacing:-0.03em;line-height:1;margin-bottom:6px}
+.hstat-n .unit{font-size:.55em;font-weight:600;color:#94A3B8}
+.accent{background:linear-gradient(135deg,#3B82F6,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hstat-l{font-size:12px;color:#64748B;line-height:1.5;font-weight:400}
+
+/* ── 공통 섹션 ── */
+section{padding:100px 24px}
+.s-inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3B82F6;margin-bottom:16px;display:block}
+.s-title{font-size:clamp(28px,4vw,48px);font-weight:800;color:#0F172A;line-height:1.1;letter-spacing:-0.02em;margin-bottom:16px}
+.s-desc{font-size:16px;color:#475569;max-width:500px;line-height:1.75;font-weight:400;margin-bottom:0}
+.s-head{margin-bottom:52px}
+
+/* ── 수익 수수료 ── */
+.commission{background:linear-gradient(160deg,#EFF6FF,#E0F2FE)}
+.comm-hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:52px}
+.comm-main{background:linear-gradient(135deg,#3B82F6,#0EA5E9);border-radius:24px;padding:40px;position:relative;overflow:hidden}
+.comm-main::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 20%,rgba(255,255,255,0.15),transparent 60%)}
+.c-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;position:relative}
+.comm-rate{font-size:clamp(64px,8vw,96px);font-weight:800;letter-spacing:-0.04em;line-height:1;position:relative;color:#fff;margin-bottom:8px;text-shadow:0 2px 20px rgba(0,0,0,0.1)}
+.comm-sub{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.6;position:relative;font-weight:400}
+.comm-aside{display:flex;flex-direction:column;gap:20px}
+.cc{background:#fff;border:1px solid rgba(59,130,246,0.15);border-radius:20px;padding:28px;box-shadow:0 2px 12px rgba(59,130,246,0.06)}
+.cc-lbl{font-size:11px;font-weight:700;color:#3B82F6;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.cc-val{font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-bottom:6px}
+.cc-desc{font-size:13px;color:#64748B;line-height:1.6;font-weight:400}
+
+.s-table{margin-top:32px;border:1px solid rgba(59,130,246,0.12);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(59,130,246,0.04)}
+.s-table table{width:100%;border-collapse:collapse}
+.s-table th{background:#F8FAFF;font-size:11px;font-weight:700;color:#94A3B8;padding:14px 20px;text-align:left;letter-spacing:.06em;text-transform:uppercase}
+.s-table td{padding:14px 20px;font-size:13px;color:#475569;border-top:1px solid #F1F5F9;background:#fff}
+.td-hi{color:#3B82F6;font-weight:700}
+
+/* ── 왜 이 프로그램 ── */
+.why{background:#fff}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wc{background:#F8FAFF;border:1px solid rgba(59,130,246,0.12);border-radius:20px;padding:36px 28px;transition:all .2s}
+.wc:hover{border-color:rgba(59,130,246,0.35);box-shadow:0 8px 24px rgba(59,130,246,0.1);transform:translateY(-3px)}
+.wc-n{font-size:11px;font-weight:700;letter-spacing:.1em;color:#3B82F6;margin-bottom:20px;display:block}
+.wc h3{font-size:18px;font-weight:700;color:#0F172A;letter-spacing:-0.01em;margin-bottom:10px;line-height:1.35}
+.wc p{font-size:14px;color:#64748B;line-height:1.8;font-weight:400}
+
+/* ── 파트너스 유형 ── */
+.who{background:linear-gradient(160deg,#EFF6FF,#F0FDFF)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wh{background:#fff;border:1px solid rgba(59,130,246,0.12);border-radius:20px;padding:28px;transition:all .2s;position:relative;box-shadow:0 2px 8px rgba(59,130,246,0.04)}
+.wh:hover{border-color:rgba(59,130,246,0.35);box-shadow:0 8px 24px rgba(59,130,246,0.1);transform:translateY(-3px)}
+.wh.feat{border-color:rgba(59,130,246,0.4);background:linear-gradient(135deg,#EFF6FF,#E0F2FE)}
+.feat-b{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;color:#3B82F6;background:rgba(59,130,246,0.1);padding:3px 10px;border-radius:100px}
+.wh-ic{width:40px;height:40px;border-radius:12px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+.wh h3{font-size:15px;font-weight:700;color:#0F172A;margin-bottom:8px;letter-spacing:-0.01em}
+.wh p{font-size:13px;color:#64748B;line-height:1.75;margin-bottom:14px;font-weight:400}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11px;color:#3B82F6;background:rgba(59,130,246,0.08);padding:3px 9px;border-radius:100px;font-weight:600}
+.who-note{margin-top:20px;font-size:13px;color:#64748B;padding:14px 18px;background:#fff;border-radius:12px;border-left:3px solid #3B82F6;line-height:1.7}
+
+/* ── 블로그페이 소개 ── */
+.svc-sec{background:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sc{background:#F8FAFF;border:1px solid rgba(59,130,246,0.12);border-radius:20px;padding:28px;transition:all .2s}
+.sc:hover{border-color:rgba(59,130,246,0.4);box-shadow:0 8px 24px rgba(59,130,246,0.1);transform:translateY(-2px)}
+.sc-n{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-0.03em;margin-bottom:12px;line-height:1}
+.sc-n.pu{background:linear-gradient(135deg,#3B82F6,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sc-n.pl{color:#0F172A}
+.sc h3{font-size:14px;font-weight:700;color:#0F172A;margin-bottom:6px}
+.sc p{font-size:13px;color:#64748B;line-height:1.7;font-weight:400}
+
+/* ── 수익 구조 ── */
+.rev-sec{background:linear-gradient(160deg,#EFF6FF,#E0F2FE)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.flow::after{content:'';position:absolute;top:28px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,transparent,#3B82F6,#06B6D4,transparent)}
+.fs{text-align:center;padding:0 12px;position:relative;z-index:1}
+.fi{width:56px;height:56px;border-radius:16px;background:#fff;border:1.5px solid rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 16px;transition:all .2s;box-shadow:0 2px 10px rgba(59,130,246,0.08)}
+.fs:hover .fi{border-color:#3B82F6;box-shadow:0 6px 20px rgba(59,130,246,0.2);transform:translateY(-2px)}
+.fs h3{font-size:14px;font-weight:700;color:#0F172A;margin-bottom:6px}
+.fs p{font-size:12px;color:#64748B;line-height:1.65;font-weight:400}
+.rev-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.ri{background:#fff;border:1px solid rgba(59,130,246,0.15);border-radius:16px;padding:24px;text-align:center;box-shadow:0 2px 10px rgba(59,130,246,0.06)}
+.ri-l{font-size:12px;color:#94A3B8;margin-bottom:8px;font-weight:500}
+.ri-v{font-size:28px;font-weight:800;color:#0F172A;letter-spacing:-0.02em}
+.ri-v.hi{background:linear-gradient(135deg,#3B82F6,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ri-s{font-size:11px;color:#94A3B8;margin-top:4px}
+.rev-note{margin-top:16px;font-size:12px;color:#94A3B8;padding:12px 16px;background:#fff;border-radius:10px;border-left:3px solid #3B82F6}
+
+/* ── 파트너스 지원 ── */
+.sup-sec{background:#fff}
+.sup-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.supc{background:#F8FAFF;border:1px solid rgba(59,130,246,0.12);border-radius:20px;padding:28px;display:flex;gap:18px;align-items:flex-start;transition:all .2s}
+.supc:hover{border-color:rgba(59,130,246,0.35);box-shadow:0 6px 20px rgba(59,130,246,0.1)}
+.sup-ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#EFF6FF,#E0F2FE);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:1px solid rgba(59,130,246,0.15)}
+.supc h3{font-size:15px;font-weight:700;color:#0F172A;margin-bottom:6px}
+.supc p{font-size:13px;color:#64748B;line-height:1.7;font-weight:400}
+
+/* ── 신청 스텝 ── */
+.steps-sec{background:linear-gradient(160deg,#EFF6FF,#F0FDFF)}
+.steps-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.step-list{margin-top:52px}
+.step{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid rgba(59,130,246,0.1)}
+.step:last-child{border-bottom:none}
+.snum{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px}
+.step h3{font-size:16px;font-weight:700;color:#0F172A;margin-bottom:5px}
+.step p{font-size:13px;color:#64748B;line-height:1.7;font-weight:400}
+.stag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-top:7px}
+.stag.fr{background:rgba(59,130,246,0.1);color:#3B82F6}
+.stag.fs2{background:rgba(6,182,212,0.1);color:#0891B2}
+.sbox{background:#fff;border:1.5px solid rgba(59,130,246,0.2);border-radius:24px;padding:36px;position:sticky;top:80px;margin-top:52px;box-shadow:0 4px 20px rgba(59,130,246,0.08)}
+.sbox-t{font-size:22px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-bottom:8px}
+.sbox-s{font-size:14px;color:#64748B;margin-bottom:28px;line-height:1.6}
+.ck-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ck-list li{font-size:14px;color:#334155;display:flex;align-items:center;gap:10px}
+.ck-list li::before{content:'✓';width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#06B6D4);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(59,130,246,0.4)}
+
+/* ── FAQ ── */
+.faq-sec{background:#fff}
+.faq-c{max-width:760px;margin:0 auto;text-align:center}
+.faq-c .eyebrow,.faq-c .s-title{display:block}
+.faq-c .s-title{color:#0F172A}
+.faq-list{margin-top:48px;text-align:left}
+details{border-bottom:1px solid #E2E8F0}
+summary{font-size:16px;font-weight:600;color:#0F172A;padding:22px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;list-style:none;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:20px;color:#94A3B8;font-weight:300;flex-shrink:0;transition:transform .2s,color .2s}
+details[open] summary::after{transform:rotate(45deg);color:#3B82F6}
+details p{font-size:14px;color:#64748B;line-height:1.85;padding-bottom:22px;font-weight:400}
+
+/* ── 신청 폼 ── */
+.apply-sec{background:linear-gradient(160deg,#EFF6FF,#E0F2FE)}
+.apply-in{max-width:640px;margin:0 auto;text-align:center}
+.apply-sec .s-title{color:#0F172A}
+.apply-sec .eyebrow{color:#3B82F6}
+.apply-sec .s-desc{color:#475569;max-width:100%;margin:0 auto 40px}
+.aform{background:#fff;border:1.5px solid rgba(59,130,246,0.2);border-radius:24px;padding:40px 40px;box-shadow:0 8px 40px rgba(59,130,246,0.12);text-align:left}
+.ft{font-size:18px;font-weight:700;color:#0F172A;margin-bottom:4px}
+.fs3{font-size:13px;color:#94A3B8;margin-bottom:28px}
+.fg{margin-bottom:14px}
+label{display:block;font-size:12px;font-weight:700;color:#64748B;margin-bottom:6px;letter-spacing:.03em;text-transform:uppercase}
+label .req{color:#3B82F6}
+input:not([type=checkbox]),select,textarea{width:100%;padding:12px 16px;background:#F8FAFF;border:1.5px solid #E2E8F0;border-radius:10px;font-size:14px;font-family:inherit;color:#0F172A;outline:none;transition:border-color .2s;-webkit-appearance:none}
+input:not([type=checkbox])::placeholder,textarea::placeholder{color:#CBD5E1}
+input:not([type=checkbox]):focus,select:focus,textarea:focus{border-color:#3B82F6;background:#fff;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+select option{background:#fff;color:#0F172A}
+textarea{resize:vertical;min-height:80px}
+.fchk{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px}
+.fchk input[type=checkbox]{width:18px;height:18px;min-width:18px;margin-top:2px;accent-color:#3B82F6;flex-shrink:0;cursor:pointer}
+.fchk label{font-size:12px;font-weight:400;color:#94A3B8;text-transform:none;letter-spacing:0}
+.fchk label a{color:#3B82F6}
+.btn-sub{width:100%;padding:15px;background:linear-gradient(135deg,#3B82F6,#06B6D4);color:#fff;font-size:16px;font-weight:700;font-family:inherit;border:none;border-radius:12px;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(59,130,246,0.3)}
+.btn-sub:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,130,246,0.4)}
+.fm{text-align:center;font-size:11px;color:#94A3B8;margin-top:12px}
+
+/* ── CTA ── */
+.cta-sec{padding:100px 24px;background:linear-gradient(135deg,#3B82F6,#0EA5E9);text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(255,255,255,0.1),transparent 70%)}
+.cta-c{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.cta-c h2{font-size:clamp(28px,4vw,48px);font-weight:800;color:#fff;letter-spacing:-0.02em;line-height:1.15;margin-bottom:16px}
+.cta-c p{font-size:16px;color:rgba(255,255,255,0.8);margin-bottom:36px;line-height:1.7}
+.cta-sec .btn-main{background:#fff;color:#3B82F6;box-shadow:0 6px 20px rgba(0,0,0,0.15)}
+.cta-sec .btn-main:hover{box-shadow:0 10px 28px rgba(0,0,0,0.2)}
+.cta-lnk{display:flex;justify-content:center;gap:24px;margin-top:24px;flex-wrap:wrap}
+.cta-lnk a{font-size:13px;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s}
+.cta-lnk a:hover{color:#fff}
+
+/* ── 푸터 ── */
+footer{background:#0F172A;padding:48px 24px}
+.foot-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.fbrand{font-size:14px;font-weight:700;color:rgba(255,255,255,0.7)}
+.finfo{font-size:12px;color:rgba(255,255,255,0.3);line-height:1.8;margin-top:4px}
+.flinks{display:flex;gap:20px;flex-wrap:wrap}
+.flinks a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:#fff}
+.fbot{max-width:1200px;margin:20px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07);font-size:11px;color:rgba(255,255,255,0.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* ── 반응형 ── */
+@media(max-width:900px){
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .comm-hero{grid-template-columns:1fr}
+  .why-grid,.who-grid,.svc-grid,.sup-grid{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:repeat(2,1fr);gap:28px}
+  .flow::after{display:none}
+  .rev-sum{grid-template-columns:1fr}
+  .steps-in,.apply-in{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .who-grid,.svc-grid{grid-template-columns:1fr}
+  .aform{padding:24px 20px}
+  .hero{padding:100px 20px 60px}
+  section{padding:72px 20px}
+}
+@keyframes fadeup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.au{animation:fadeup .7s ease forwards}
+.d1{animation-delay:.1s;opacity:0}
+.d2{animation-delay:.22s;opacity:0}
+.d3{animation-delay:.36s;opacity:0}
+
+/* ── 문의 모달 ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,23,42,0.55);backdrop-filter:blur(6px);z-index:999;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:24px;padding:40px 36px;max-width:400px;width:90%;box-shadow:0 24px 60px rgba(15,23,42,0.18);animation:fadeup .3s ease forwards;text-align:center}
+.modal-ttl{font-size:20px;font-weight:800;color:#0F172A;letter-spacing:-0.02em;margin-bottom:8px}
+.modal-sub{font-size:14px;color:#64748B;margin-bottom:32px;line-height:1.6}
+.modal-btns{display:flex;flex-direction:column;gap:12px}
+.modal-btn{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:14px;text-decoration:none;transition:all .2s;border:1.5px solid rgba(59,130,246,0.2);background:#F8FAFF}
+.modal-btn:hover{border-color:#3B82F6;background:#EFF6FF;transform:translateY(-2px);box-shadow:0 6px 20px rgba(59,130,246,0.12)}
+.modal-btn-ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.modal-btn-ic.email{background:linear-gradient(135deg,#EFF6FF,#DBEAFE)}
+.modal-btn-ic.tel{background:linear-gradient(135deg,#F0FDF4,#DCFCE7)}
+.modal-btn-txt{text-align:left}
+.modal-btn-txt strong{display:block;font-size:14px;font-weight:700;color:#0F172A;margin-bottom:2px}
+.modal-btn-txt span{font-size:12px;color:#64748B}
+.modal-close{margin-top:20px;background:none;border:none;font-size:13px;color:#94A3B8;cursor:pointer;font-family:inherit;transition:color .2s}
+.modal-close:hover{color:#475569}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="logo-dot"></span>
+      <span style="font-size:15px;font-weight:700;color:#1A2B4A">블로그페이 파트너스</span>
+      <a href="https://blogpay.co.kr/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:5px;text-decoration:none"><span style="font-size:13px;font-weight:500;color:#94A3B8;line-height:1">with</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHEAAAAnCAYAAAA4qac6AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAJgElEQVR4nO2af4xdRRXHP/uzu2/bTrdWp0FAUZR2VNpaU35oEamKFlJLFX/UYFNRTNH4qyJRBFSg0IY/kBjEiEAiag01VCwoYijVqGi0aaxOjIFQE8BOy7Y73e3+3rf+ceb67s679763rtgW3zd5effdmTn3zPk155z7oIEGGjjOoLS5WGlzv9Lmo9Og8X6lzQNKm/f8N3lrIB/N0e8FwHuB10+D5quA1cDp06DRwBQQK9EDh4GhadDsBw4BB6dBo4EpIFZiZ/i0T4PmTGAOUJoGjQamgFiJE8Ao4o3/KXqBQaB1GjQamAJiJQ4CLYCaBk0FjANN06DRwBSQ5S1NiDcCoLS5CDgXmA/s985eU4PmONAWvguhtPkUsBDoAJx39st18p2m8XHgPOQs3uOd/XZqbKV39uEp0lsDvAU5Vo54Z6+ewtqLgZXIcTQM7PbOfjdn7nLv7K+nwlseJnmL0uaTwGbgFu/sjUqbfmAM8a5+JNwCPOedXZDD3GeBG4CrvLN35sx5HDgTmIEIqx9RfBsw5J2dWYtxpc0jwNvCmiNhL62I8Wzxzt6gtBkAdnln352xfn949hDwjHd2qdKmNyWTdiQyAeCdnVvAy2OIoZeBo0hO8E9EbmPAU97ZZdGaZ4G5YXzCOzu7gP5exIm6gFbv7KScJQ6nQ0g4nRMEMAZs8s42eWdnAWuBEWBu2HAWmgONmHbCUC9wNiKstd7ZZu/sbO9sJ7AD6FXajChtlhdsygIrgP3Aed5ZFYSwCngS2Ki02R3280wOmefD91xAKW36ECW0UfGkdiRKlJU2wxl83BXktBhRXiuVSPbysHY2cHqYl8a1Yc0Y0Ky02ZS3X6Tk60SM6q/xYCzolkB4I9DjnZ3jnd2SDHpnd3hn5wEOaFPaPJTxwNZApwpKm63AALDPO9vtnf1Jetw7uxq4DUmsMsOg0uarwCuBp72zp6ZDknf2l97ZJcBPAZPiJw/NwAFE4GOIoLYDNwMPIpFnCFFGv9Lm7xG/H0OU1owo/zDwZ+CHwEOIUfQFOgNKmydSa+9GFFxClLMhZ7/vQEq/UcQTN8Zz4g0qxDIPeWdPydu5d/YNSpshIMtbykhIm8gYWwOMeGdPKqB9aziHz1baXJ5xplwJjHlnX1NA4zKlzWLgteQnWKXA43wkHB/1znbHk4IH9SMCzwqpG4A7gAuzzjilzWHEqCeARdHwn4AzEI8fyeHzWsSIjgCzvLOPxRNiTzwA9ACP5xBMYyfQorQ5P7qfKDHLG4fJD29p3Ix4wIczxjqorwTahHhBZlhHrHsCiTzN3tmTc+Z9AlH4AOCVNldMIuLsvd7ZUkGS8iBiSFnJ3uZwvwSUlDZXZaxfhHhqO/BA1gPiDc4EuoG9OQylsScwECc4ifImebnS5jPhedtrEfbO/iKsn9T+U9q8NVz+ow7+RigulWYjBjdGQTnknf0eIvyuwNOZdTw7jb8E+mNESvTObg+XibF9KGN9c1g/yzt7adYD4nDajFhcPR2bPiROx1lVEyKccnS/PYzFB3we2qkkHwnKiJHE97NQRix4NGd8CMmOx5AzvghdSBOjM8yfBKXNRuAS4HWId08gskw+yXk7pLRx4foK7+xW4I/AkjBnYUT3vnDZTMGeY08cpZJ210IzYllx1jZBdijtoIbVRxhEPD2NtvDcPMWkkQg7M8kKKJN/FqWR5nmSgSttjgJfAt4U+EvKpoTXccRZEqPuopLMANyUIjeutPlg6vfbqez3PnIQK3E83KvHE4dSjKaRpNlZ8zuoowkQkCQeMX8TVHt5FuppOEwgNV0tox0O9CZIGa3SZl+47CKcrVTyilEk6iRGNIrI9SASxTpBMuowp4PqPGAWIfp4Z6uy0gRxOC2FB8QekIVuxIpjT0zifxx2joRNVWWAOegjMgbv7C6lzQwgN7tNYZwgqBrooXazvkx26XQKkrmOAAPe2ZfEC5U2X0SSrB7kXDstg/6jSNdpNnBRWHcblfLl2SLmYi9KLKSnaFHAOeEhT0X3y4jFxgpI2mFvroM2iNU+mXH/MPW975xHfaFSIWVGEZLsdIzJZ9PziMF3e2dfkbO2GzGoDsRLq+CdXUMl8hwKt1chDjIO3FrEXKzEOUhY+FzRooDzETd/JLqfNL+zQrJCXhoXQmmzCxHOtozhfqC1qKMTcB31hd0yUohfl8PLTkSwXUh9mj7D5pAdjdK4MvDcFT55GEdk3xmeOR+RY6d39q6iDcRKPIRYxIzgzplQ2mxDLPM3GcNJZppV7G8LtJ/IGEtorwCWIbXbNzOmrA98VxW9KRpbgarQloM+pIj/itLm/ojOj4CliDf1Ul2yjCAhtkVp84cMPvZTkfFBipW4DUmKhpEodwQp+X5VawPxmZgkHv3ABqXNOd7ZsyLGLPBqpMPxzgyaLYgFVSnRO3tpaKovVdrs9s6+MaL9HeADSOa2Noth7+zO0PxerrQpA98HfhD4XoR0UE4DbgS+ULT5gBKioG7ggkAzKbN6w5zDiEfECVtrmNsKLAhrk380lKhk42VAI3LNhHd2vdLmEioRrAOR8YpaG8hqu40B1yDKuDM0focC8aS36ryzp+bQbE99spidGax2idLGB2YHEaV3IZa4zjv78zymvbPvU9qsB76B1GerkPDbCvR7Z5uUNiupryZNMso9yJuIHir1YwnxtjagKip4ZztD+/EoFaV3heskM/4I0kvdD7ysBi+9yFmeJIV1vVifNMk7u1lpczB0KQDuVdpcjYSUk5D3Y58uIhheYT0XGrx5c5YBhHNoMZKV7QN+7J39WT2Me2fvAe4JdFYj59WO1JQ2xECywjrhfmJA87yzC5U2NyGe3EKlm7PHO3tBAR8d4UXAuUj4m0BC4W+9s6sCfwNIiXEoj07AHcD1VLL7ut6FvmjfvittLkeyutu9s9dnjO8FTkY852nv7Bn/YxarEKLLtwhRwDub1/edhBfz/2DWId74u5zxJElJEpvjAVuovP6q1Qr8N+rS9AmKJUBHwdl6ANl/8g+/4wElJBTPpqDNFuOEVKLS5lGlTWbhrLR5V8iAm4DPF5BpQ9pag9TX3HhBEWrjPqQ0Gs46AvJwoobTMtCktBlBEobkrxUqfJeAr3tnby+g8VLkfzCzkKL9WGMR4lSDwN+msvCEVKJ39kIApc3dSKe/ROU12sPe2XV1kBlFrL6J+tpzLzR+D5yF6ORrx5iXBqYDpc1lx5qHBhpooIEGGmiggQYaaOD/Gv8C0NUjSIksSasAAAAASUVORK5CYII=" alt="blogpay" style="height:22px;display:block;vertical-align:middle"></a>
+    </div>
+    <a href="#apply" class="nav-btn">신청하기 →</a>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-bg"><div class="blob1"></div><div class="blob2"></div><div class="grid-bg"></div></div>
+  <div class="hero-in">
+    <div class="hero-badge au"><span class="badge-pill">NEW</span> BlogPay Channel Partners Program</div>
+    <h1 class="au d1">내 채널로 셀러를 연결하고<br><span class="grad">수익을 만드세요.</span></h1>
+    <p class="hero-sub au d2">소상공인, 1인 판매자, 예비창업자와 접점이 있다면 누구나 시작할 수 있습니다.<br>전용 링크 하나로 시작하고, 셀러의 거래가 이어지는 동안 수익이 반복 발생합니다.</p>
+    <div class="hero-acts au d3">
+      <a href="#apply" class="btn-main">파트너스 신청하기 (무료) →</a>
+      <a href="#how" class="btn-line">수익 구조 보기 ↓</a>
+    </div>
+    <div class="hero-stats au d3">
+      <div class="hstat"><div class="hstat-n">₩<span class="accent">0</span></div><div class="hstat-l">가입비·유지비<br>일체 없음</div></div>
+      <div class="hstat"><div class="hstat-n"><span class="accent">즉시</span></div><div class="hstat-l">전용 링크<br>발급</div></div>
+      <div class="hstat"><div class="hstat-n"><span class="accent">∞</span></div><div class="hstat-l">셀러 거래 동안<br>수익 반복 발생</div></div>
+      <div class="hstat"><div class="hstat-n">D<span class="accent">+20</span></div><div class="hstat-l">익월 20일<br>정기 정산</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="commission dk" id="how">
+  <div class="s-inner">
+    <div class="s-head">
+      <span class="eyebrow">수익 수수료 구조</span>
+      <h2 class="s-title">셀러 결제 건마다<br>수익이 쌓입니다</h2>
+      <p class="s-desc">파트너스가 유치한 셀러의 카드·휴대폰 결제 금액 기준으로<br>수익이 자동 귀속됩니다.</p>
+    </div>
+    <div class="comm-hero">
+      <div class="comm-main">
+        <div class="c-label">파트너스 수익 수수료율</div>
+        <div class="comm-rate" style="font-size:clamp(32px,4vw,52px)">수익 반복 발생</div>
+        <div class="comm-sub">카드·휴대폰 결제 기준, 매 거래마다 자동 적립됩니다.<br>셀러가 계속 운영하는 한 수익이 반복 발생합니다.</div>
+      </div>
+      <div class="comm-aside">
+        <div class="cc"><div class="cc-lbl">파트너스 수수료</div><div class="cc-val">100% 귀속</div><div class="cc-desc">카드·휴대폰 결제에 대한 파트너스 수수료 100%가 파트너스에게 귀속됩니다.</div></div>
+        <div class="cc"><div class="cc-lbl">정산 주기</div><div class="cc-val">익월 D+20</div><div class="cc-desc">매월 20일 정기 정산.<br>파트너스 관리자에서 수익 현황 실시간 확인 가능합니다.</div></div>
+      </div>
+    </div>
+    <div class="s-table"><table><thead><tr><th>구분</th><th>내용</th><th>비고</th></tr></thead><tbody>
+      <tr><td>수익 수수료율</td><td class="td-hi">카드·휴대폰 결제 기준</td><td>결제 건별 자동 집계</td></tr>
+      <tr><td>수익 발생 조건</td><td>유치 셀러의 거래 발생 시</td><td>셀러 활성 운영 동안 반복</td></tr>
+      <tr><td>정산 주기</td><td>익월 20일</td><td>파트너스 관리자에서 확인</td></tr>
+      <tr><td>수익 제외 대상</td><td>네이버페이·카카오페이 등 간편결제</td><td>—</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<section class="why lt">
+  <div class="s-inner">
+    <div class="s-head"><span class="eyebrow">Why This Program</span><h2 class="s-title">왜 이 프로그램인가</h2></div>
+    <div class="why-grid">
+      <div class="wc"><span class="wc-n">01</span><h3>소개 한 번으로<br>수익이 반복됩니다</h3><p>유치한 셀러가 블로그페이에서 거래를 이어가는 동안 수익이 계속 발생합니다.<br>셀러가 쌓일수록 파트너스의 월 수익도 안정적으로 커지는 구조입니다.</p></div>
+      <div class="wc"><span class="wc-n">02</span><h3>소개하기 어렵지 않은<br>서비스입니다</h3><p>블로그페이는 수수료 0%, 완전 무료, 3분이면 시작 가능합니다.<br>"공짜에 수수료도 없어요" 한 마디로 설명이 끝납니다. 거절할 이유가 없는 서비스입니다.</p></div>
+      <div class="wc"><span class="wc-n">03</span><h3>새로운 일을<br>하는 게 아닙니다</h3><p>이미 하고 있는 활동에 추천 링크 하나를 더하는 것입니다.<br>창업 콘텐츠, 커뮤니티 게시글, 지인 소개. 별도 교육이나 영업이 필요하지 않습니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="who dk" id="who">
+  <div class="s-inner">
+    <div class="s-head"><span class="eyebrow">Who Can Join</span><h2 class="s-title">이런 분들이 파트너스가 됩니다</h2><p class="s-desc">소상공인·1인 판매자·예비창업자와 접점이 있다면 충분합니다.</p></div>
+    <div class="who-grid">
+      <div class="wh feat"><div class="feat-b">★ 추천</div><div class="wh-ic">🛍️</div><h3>블로그페이 셀러 (추천인)</h3><p>현재 블로그페이를 운영 중인 셀러. 직접 써본 사람의 소개라 전환율이 가장 높습니다.</p><div class="tags"><span class="tag">기존 셀러</span><span class="tag">즉시 가능</span></div></div>
+      <div class="wh"><div class="wh-ic">📱</div><h3>인플루언서·인스타그래머</h3><p>팔로워 기반 공동구매·협찬 크리에이터. 판매를 원하는 팔로워에게 자연스럽게 소개할 수 있습니다.</p><div class="tags"><span class="tag">인스타그램</span><span class="tag">공동구매</span><span class="tag">SNS 마켓</span></div></div>
+      <div class="wh"><div class="wh-ic">🎬</div><h3>창업·마케팅 크리에이터</h3><p>SNS 창업, 온라인 판매 관련 콘텐츠를 만드는 유튜버·블로거. 콘텐츠에 추천 링크를 자연스럽게 포함합니다.</p><div class="tags"><span class="tag">유튜버</span><span class="tag">블로거</span></div></div>
+      <div class="wh"><div class="wh-ic">📚</div><h3>강의·콘텐츠 판매자</h3><p>창업, 이커머스 관련 온라인 강의 강사. 수강생에게 실습 도구로 소개하며 파트너스 활동을 이어갑니다.</p><div class="tags"><span class="tag">온라인 강의</span><span class="tag">창업 강사</span></div></div>
+      <div class="wh"><div class="wh-ic">🤲</div><h3>1인 판매자·예비창업자</h3><p>핸드메이드, 부업, 소규모 판매를 운영 중인 1인 사업자. 직접 쓰면서 지인에게 소개합니다.</p><div class="tags"><span class="tag">핸드메이드</span><span class="tag">예비창업자</span><span class="tag">부업</span></div></div>
+      <div class="wh"><div class="wh-ic">👥</div><h3>커뮤니티·카페 운영자</h3><p>소상공인 대상 네이버 카페·카카오 오픈채팅 운영자. 커뮤니티 내 링크 공유만으로도 활동 가능합니다.</p><div class="tags"><span class="tag">네이버 카페</span><span class="tag">오픈채팅</span></div></div>
+    </div>
+    <p class="who-note">ℹ️ 위 유형 외에도 소상공인·1인 판매자·예비창업자와 접점이 있는 사업자라면 신청 가능합니다.<br><strong>원칙적으로 국내에 정상 등록된 사업자만 신청 가능합니다. 다만, 많은 채널과 네트워크를 보유하신 비사업자분은 개별 문의 주시기 바랍니다.</strong><br>✉️ <a href="#" onclick="document.getElementById('contactModal').classList.add('open');return false;" style="color:#3B82F6;font-weight:600;text-decoration:none;">이메일로 개별 문의 가능합니다 →</a></p>
+  </div>
+</section>
+
+<section class="svc-sec lt">
+  <div class="s-inner">
+    <div class="s-head"><span class="eyebrow">What You Introduce</span><h2 class="s-title">파트너스가 소개하는<br>블로그페이</h2><p class="s-desc">수수료 없이 자사몰처럼 운영할 수 있는 무료 쇼핑몰 솔루션.</p></div>
+    <div class="svc-grid">
+      <div class="sc"><div class="sc-n pu">0%</div><h3>플랫폼 수수료 없음</h3><p>스마트스토어와 달리 판매 수수료 없음. PG 수수료 외 별도 비용 없음.</p></div>
+      <div class="sc"><div class="sc-n pl">무료</div><h3>완전 무료 운영</h3><p>가입비·월정액·숨은 비용 없음. 쇼핑몰 개설부터 운영까지 무료.</p></div>
+      <div class="sc"><div class="sc-n pu">3분</div><h3>가장 낮은 허들</h3><p>3분이면 판매 링크 생성. 상품 등록부터 주문·결제·배송·CS까지 한 번에.</p></div>
+      <div class="sc"><div class="sc-n pu">↑</div><h3>기능 지속 업그레이드</h3><p>서버비·호스팅비 없이 자사몰처럼 운영. 디자인·기능 지속 업데이트 중.</p></div>
+      <div class="sc"><div class="sc-n pl">5+</div><h3>커머스 생태계 연계</h3><p>마이픽셀, 프로셀, 유캔사인, 링크스토리 등 연계 서비스로 성장 지원.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rev-sec dk" id="revenue">
+  <div class="s-inner">
+    <div class="s-head"><span class="eyebrow">Revenue Structure</span><h2 class="s-title">파트너스 수익 구조</h2><p class="s-desc">전용 링크 하나로 시작하고, 셀러가 운영하는 동안<br>수익이 반복 발생합니다.</p></div>
+    <div class="flow">
+      <div class="fs"><div class="fi">🔗</div><h3>전용 링크 발급</h3><p>파트너스별 고유 가입 링크 즉시 발급</p></div>
+      <div class="fs"><div class="fi">📢</div><h3>채널에 공유</h3><p>SNS·블로그·카페·강의 등 자유롭게</p></div>
+      <div class="fs"><div class="fi">🛒</div><h3>셀러 가입·거래</h3><p>링크를 통해 가입한 셀러 거래 발생</p></div>
+      <div class="fs"><div class="fi">💰</div><h3>수익 반복 발생</h3><p>거래가 이어지는 동안 수익 지속</p></div>
+    </div>
+    <div class="rev-sum">
+      <div class="ri"><div class="ri-l">카드·휴대폰 결제 파트너스 수수료</div><div class="ri-v">100%</div><div class="ri-s">파트너스에게 귀속</div></div>
+      <div class="ri"><div class="ri-l">유치 셀러 수</div><div class="ri-v">무제한</div><div class="ri-s">유치 셀러 수 제한 없음</div></div>
+      <div class="ri"><div class="ri-l">정산 주기</div><div class="ri-v">D+20</div><div class="ri-s">익월 20일 정기 정산</div></div>
+    </div>
+    <p class="rev-note">※ 네이버페이·카카오페이 등 간편결제는 수익 분배 대상에서 제외됩니다.</p>
+  </div>
+</section>
+
+<section class="sup-sec lt">
+  <div class="s-inner">
+    <div class="s-head"><span class="eyebrow">Partners Support</span><h2 class="s-title">파트너스에게 제공되는 것들</h2><p class="s-desc">가입 즉시 활동에 필요한 것들을 제공합니다.</p></div>
+    <div class="sup-grid">
+      <div class="supc"><div class="sup-ic">🔗</div><div><h3>전용 추천 링크</h3><p>파트너스별 고유 가입 링크 즉시 발급.<br>링크를 통한 가입 및 거래 실적 자동 집계.</p></div></div>
+      <div class="supc"><div class="sup-ic">📊</div><div><h3>파트너스 관리자</h3><p>유치 셀러 현황, 수익 현황을<br>파트너스 전용 관리자에서 확인 가능.</p></div></div>
+      <div class="supc"><div class="sup-ic">📄</div><div><h3>파트너스 제안서</h3><p>수익 구조·프로그램 조건을 정리한 제안서를<br>PDF로 다운로드할 수 있습니다. <a href="#" id="proposal-link" style="color:#3B82F6;font-weight:600;text-decoration:none">제안서 다운받기 →</a></p></div></div>
+      <div class="supc"><div class="sup-ic">💬</div><div><h3>담당자 1:1 지원</h3><p>신청 후 담당자가 개별 안내.<br>활동 방향 및 관리자 사용법 상담 가능.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec dk">
+  <div class="s-inner">
+    <div class="steps-in">
+      <div>
+        <span class="eyebrow">How To Start</span>
+        <h2 class="s-title">신청부터<br>수익까지</h2>
+        <p class="s-desc">빠르면 1~2 영업일 내에 활동을 시작할 수 있습니다.</p>
+        <div class="step-list">
+          <div class="step"><div class="snum">1</div><div><h3>파트너스 신청 (무료)</h3><p>아래 신청 폼에서 기본 정보 입력. 가입비·심사비 없음.</p><span class="stag fr">가입비 0원</span></div></div>
+          <div class="step"><div class="snum">2</div><div><h3>검토 및 안내</h3><p>신청 내용 확인 후 담당자가 개별 연락. 활동 방향 안내.</p><span class="stag fs2">1~2 영업일 이내</span></div></div>
+          <div class="step"><div class="snum">3</div><div><h3>전용 링크 발급</h3><p>파트너스 관리자 접속 후 전용 가입 링크 즉시 발급.</p></div></div>
+          <div class="step"><div class="snum">4</div><div><h3>파트너스 활동 시작</h3><p>채널에 링크 공유 또는 셀러 직접 등록으로 바로 시작.</p></div></div>
+          <div class="step"><div class="snum">5</div><div><h3>수익 발생 및 정산</h3><p>유치 셀러의 거래 발생 시 수익 자동 집계. 익월 20일 정산.</p></div></div>
+        </div>
+      </div>
+      <div class="sbox">
+        <div class="sbox-t">파트너스 프로그램<br>핵심 조건</div>
+        <div class="sbox-s">가입비·유지비·심사비 없이 시작할 수 있습니다.</div>
+        <ul class="ck-list">
+          <li>가입비·유지비 0원</li>
+          <li>카드·휴대폰 결제 수익 반복 발생</li>
+          <li>셀러 거래 동안 수익 반복 발생</li>
+          <li>익월 20일 정기 정산</li>
+          <li>전용 링크 즉시 발급</li>
+          <li>담당자 1:1 개별 지원</li>
+          <li>파트너스 제안서 제공</li>
+        </ul>
+        <div style="margin-top:20px;padding:14px 18px;background:#F8FAFF;border:1px solid rgba(59,130,246,0.12);border-radius:12px;font-size:11.5px;color:#94A3B8;line-height:1.85">
+          <span style="font-weight:600;color:#64748B">[활동 조건]</span>&nbsp; 연 4건 이상 가맹점 모집 및 광고 키워드 제한 준수 시 계약 유지 (1년 단위 갱신, 2건 이상부터 수수료 청구 가능)&nbsp;&nbsp;※ 상세 조건은 담당자 통화 시 안내드립니다.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec lt">
+  <div class="s-inner">
+    <div class="faq-c">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="s-title">자주 묻는 질문</h2>
+      <div class="faq-list">
+        <details open><summary>수익은 어떻게 산정되나요?</summary><p>파트너스가 유치한 셀러의 카드·휴대폰 결제 금액 기준으로 파트너스 수익이 귀속됩니다.<br>셀러 수가 쌓일수록 월 수익이 반복·누적됩니다.<br>단, 네이버페이·카카오페이 등 간편결제는 분배 대상에서 제외됩니다.</p></details>
+        <details><summary>블로그페이 셀러인데 파트너스도 될 수 있나요?</summary><p>가능합니다. 현재 블로그페이를 운영 중인 셀러도 파트너스 신청이 가능합니다.<br>지인이나 팔로워에게 소개하는 추천인 형태로 활동하실 수 있습니다.</p></details>
+        <details><summary>어떤 채널을 보유해야 하나요?</summary><p>특정 채널 조건은 없습니다.<br>SNS, 블로그, 카페, 뉴스레터, 강의 수강생 등 소상공인·1인 판매자·예비창업자와 접점이 있는 채널이라면 어떤 형태든 활용 가능합니다.</p></details>
+        <details><summary>수익은 얼마나 발생하나요?</summary><p>유치한 셀러의 카드·휴대폰 결제 거래가 이어지는 동안 수익이 반복 발생합니다.<br>셀러가 활성 운영을 지속하는 동안 반복 발생하며, 유치한 셀러 수가 쌓일수록 월 수익이 안정적으로 커지는 구조입니다.</p></details>
+        <details><summary>개인도 신청할 수 있나요?</summary><p>원칙적으로 국내에 정상 등록된 사업자만 신청 가능합니다.<br>다만, 많은 채널과 네트워크를 보유하신 비사업자분은 개별 문의 주시기 바랍니다.<br>✉️ <a href="#" onclick="document.getElementById('contactModal').classList.add('open');return false;" style="color:#3B82F6;font-weight:600;text-decoration:none;">이메일로 개별 문의 가능합니다 →</a></p></details>
+        <details><summary>유치한 셀러 수에 제한이 있나요?</summary><p>없습니다. 유치한 셀러 수에 상관없이 전부 파트너스에게 귀속됩니다.</p></details>
+        <details><summary>기존 대리점으로 활동 중인데 이 프로그램과 다른가요?</summary><p>수익 구조는 기존 대리점·리셀러 구조와 동일합니다.<br>명칭과 진입 방식을 더 넓은 파트너스 유형에 맞게 전환한 것으로, 기존 활동에 영향을 주지 않습니다.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply-sec dk" id="apply">
+  <div class="s-inner">
+    <div class="apply-in">
+      <span class="eyebrow">Apply Now</span>
+      <h2 class="s-title">파트너스 신청하기</h2>
+      <p class="s-desc">가입비·유지비 없음. 신청 후 1~2 영업일 내 담당자가 연락드립니다.</p>
+      <div class="aform">
+        <div class="ft">파트너스 신청</div>
+        <div class="fs3">기본 정보를 입력해 주세요. 담당자가 개별 연락드립니다.</div>
+        <div class="fg"><label>이름 <span class="req">*</span></label><input id="f-name" type="text" placeholder="홍길동"></div>
+        <div class="fg"><label>연락처 <span class="req">*</span></label><input id="f-phone" type="tel" placeholder="010-0000-0000"></div>
+        <div class="fg"><label>이메일 <span class="req">*</span></label><input id="f-email" type="email" placeholder="example@company.com"></div>
+        <div class="fg"><label>파트너스 유형 <span class="req">*</span></label>
+          <select id="f-type"><option value="">유형을 선택해주세요</option><option>블로그페이 셀러 (추천인)</option><option>인플루언서·인스타그래머</option><option>창업·마케팅 크리에이터</option><option>강의·콘텐츠 판매자</option><option>1인 판매자·예비창업자</option><option>커뮤니티·카페 운영자</option><option>이커머스 에이전시·프리랜서</option><option>비사업자</option><option>기타</option></select>
+        </div>
+        <div class="fg"><label>보유 채널 URL</label><input id="f-channel" type="url" placeholder="https://..."></div>
+        <div class="fg"><label>채널 소개</label><textarea id="f-intro" placeholder="운영 중인 채널이나 활동을 간략히 소개해 주세요."></textarea></div>
+        <div class="fchk"><input type="checkbox" id="agree"><label for="agree">수집된 정보는 파트너스 프로그램 운영 및 마케팅 안내 목적으로만 사용되며 관련 법령에 따라 보호됩니다. <a href="#">[마케팅 정보 수신 동의 (필수)]</a></label></div>
+        <button class="btn-sub" id="submit-btn" onclick="submitForm()">파트너스 신청 완료하기</button>
+        <p class="fm" id="form-msg">가입비 없음 · 유지비 없음 · 사업자 보유자 신청 가능</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+function submitForm() {
+  const name    = document.getElementById('f-name').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const type    = document.getElementById('f-type').value;
+  const channel = document.getElementById('f-channel').value.trim();
+  const intro   = document.getElementById('f-intro').value.trim();
+  const agree   = document.getElementById('agree').checked;
+  const btn     = document.getElementById('submit-btn');
+  const msg     = document.getElementById('form-msg');
+
+  if (!name || !phone || !email || !type) {
+    msg.style.color = '#EF4444';
+    msg.textContent = '이름, 연락처, 이메일, 파트너스 유형은 필수 입력입니다.';
+    return;
+  }
+  if (!agree) {
+    msg.style.color = '#EF4444';
+    msg.textContent = '마케팅 정보 수신에 동의해 주세요.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '제출 중...';
+  btn.style.opacity = '0.7';
+  msg.style.color = '#94A3B8';
+  msg.textContent = '잠시만 기다려 주세요...';
+
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw9QeP9bXDVakm-bRcILGLtJJCYuUpYJ48_uoi5NnbGD6_LD-pD6uCXCRc4NRXAtKkt/exec';
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, phone: String(phone), email, type, channel, intro })
+  })
+  .then(() => {
+    btn.textContent = '✓ 신청이 완료되었습니다!';
+    btn.style.background = 'linear-gradient(135deg,#10B981,#059669)';
+    btn.style.opacity = '1';
+    msg.style.color = '#10B981';
+    msg.textContent = '담당자가 1~2 영업일 내에 연락드립니다. 감사합니다 😊';
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-phone').value = '';
+    document.getElementById('f-email').value = '';
+    document.getElementById('f-type').value = '';
+    document.getElementById('f-channel').value = '';
+    document.getElementById('f-intro').value = '';
+    document.getElementById('agree').checked = false;
+  })
+  .catch(() => {
+    btn.disabled = false;
+    btn.textContent = '파트너스 신청 완료하기';
+    btn.style.opacity = '1';
+    msg.style.color = '#EF4444';
+    msg.textContent = '오류가 발생했습니다. 잠시 후 다시 시도해 주세요.';
+  });
+}
+</script>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-c">
+    <h2>보유 채널과 네트워크를<br>수익으로 연결하세요.</h2>
+    <p>가입비·유지비 없이 전용 링크 하나로 시작합니다.</p>
+    <a href="#apply" class="btn-main">파트너스 신청하기 (무료) →</a>
+    <div class="cta-lnk">
+      <a href="#" id="cta-proposal-link">제안서 다운받기</a>
+      <a href="https://blogpay.co.kr/" target="_blank" rel="noopener">블로그페이 홈페이지</a>
+      <a href="#" onclick="document.getElementById('contactModal').classList.add('open');return false;">문의하기</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div><div class="fbrand">블로그페이 채널 파트너스 프로그램</div><div class="finfo">블로그페이 · (주)유디아이디 · udidsales@udid.co.kr</div></div>
+    <div class="flinks"><a href="#top">처음으로</a><a href="#how">수익 구조</a><a href="#who">파트너스 유형</a><a href="#apply">신청하기</a></div>
+  </div>
+  <div class="fbot"><span>© 블로그페이 · (주)유디아이디. All rights reserved.</span><span>수집된 정보는 관련 법령에 따라 보호됩니다.</span></div>
+</footer>
+
+<!-- 제안서 URL 설정 (여기 한 곳만 수정하면 페이지 전체 반영) -->
+<script>
+const PROPOSAL_URL = '#'; // 실제 PDF URL로 교체: 'https://...'
+document.querySelectorAll('#proposal-link, #cta-proposal-link').forEach(el => {
+  el.href = PROPOSAL_URL;
+  if (PROPOSAL_URL !== '#') { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener'); }
+});
+</script>
+
+<!-- 문의 모달 -->
+<div class="modal-overlay" id="contactModal" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="modal">
+    <div class="modal-ttl">문의하기</div>
+    <div class="modal-sub">편하신 방법으로 문의해 주세요.<br>빠르게 답변 드리겠습니다.</div>
+    <div class="modal-btns">
+      <a href="mailto:udidsales@udid.co.kr" class="modal-btn">
+        <div class="modal-btn-ic email">✉️</div>
+        <div class="modal-btn-txt">
+          <strong>이메일 문의</strong>
+          <span>udidsales@udid.co.kr</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
